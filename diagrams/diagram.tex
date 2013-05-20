@@ -1,34 +1,58 @@
 % !TEX root = ../document.tex
 \begin{figure}
 \center
-\begin{tikzpicture}[node distance=1cm, auto]  
+\begin{tikzpicture}[node distance=1cm, auto, scale=0.8, every node/.style={scale=0.8}]  
 \tikzset{
-    mynode/.style={rectangle,rounded corners,draw=black, top color=white, bottom color=gray!10, thick, inner sep=1em, minimum size=3em, text centered},
+    mynode/.style={rectangle,rounded corners,draw=black, top color=white, bottom color=gray!10, thick, inner sep=0.5em, minimum size=3em, text centered, align=center},
     myarrow/.style={->, >=latex', shorten >=1pt, thick},
     mylabel/.style={text width=7em, text centered} 
 }  
-\node[mynode] (users) {Users};
-\node[mynode] (standards) {Standards};
+\node (dummy) {};
+\node[right=1em of dummy] (process) {Process};
+\node[mynode, above=of dummy] (users) {User Stories};
+\node[mynode, below=of dummy] (standards) {Standards};
+\node[mynode, right=of process] (artefacts) {
+  \textbf{Artefacts} \\
+  \scriptsize{Interviews, Video} \\
+  \scriptsize{Patterns \& Anti-patterns}
+};
+\node[mynode, right=of artefacts] (development) {Tool \\ Development};
+\node[mynode, above=of development] (docs) {Documentation};
+\node[mynode, right=of development] (use) {Tool in use};
 
-\node[below=3cm of manufacturer] (dummy) {}; 
-\node[mynode, left=of dummy] (retailer1) {RETAILER 1};  
-\node[mynode, right=of dummy] (retailer2) {RETAILER 2};
-\node[mylabel, below left=of manufacturer] (label1) {Participation rate $\theta_1$};  
-\node[mylabel, below right=of manufacturer] (label2) {Participation rate $\theta_2$};
-% The text width of 7em forces the text to break into two lines. 
-
-\draw[myarrow, bend right=45] (manufacturer.south) -- ++(-.5,0) -- ++(0,-1) to (retailer1.north); 
-\draw[myarrow] (manufacturer.south) -- ++(.5,0) -- ++(0,-1) -|  (retailer2.north);
-% There is a slight overlap of the arrows with the (manufacturer) south edge
-% because creating the offset in another way didn't compile. 
- 
-\draw[<->, >=latex', shorten >=2pt, shorten <=2pt, bend right=45, thick, dashed] 
-    (retailer1.south) to node[auto, swap] {Competition}(retailer2.south); 
-% The swap command corrects the placement of the text.
+\draw[myarrow, bend right=45] 
+  (users.south) to (process.west);
+\draw[myarrow, bend left=45, dashed] 
+  (standards.north) to (process.west);
+\draw[myarrow] 
+  (process.east) to (artefacts.west);
+\draw[myarrow,  bend right=45] 
+  (artefacts.north) to node[auto, swap] {Iterative feedback}(users.north);
+\draw[myarrow] 
+  (artefacts.east) to (development.west);
+\draw[myarrow]
+  (artefacts.east) to (docs.west);
+\draw[myarrow]
+  (development.east) to (use.west);
+%
+%\node[below=3cm of manufacturer] (dummy) {}; 
+%\node[mynode, left=of dummy] (retailer1) {RETAILER 1};  
+%\node[mynode, right=of dummy] (retailer2) {RETAILER 2};
+%\node[mylabel, below left=of manufacturer] (label1) {Participation rate $\theta_1$};  
+%\node[mylabel, below right=of manufacturer] (label2) {Participation rate $\theta_2$};
+%% The text width of 7em forces the text to break into two lines. 
+%
+%\draw[myarrow, bend right=45] (manufacturer.south) -- ++(-.5,0) -- ++(0,-1) to (retailer1.north); 
+%\draw[myarrow] (manufacturer.south) -- ++(.5,0) -- ++(0,-1) -|  (retailer2.north);
+%% There is a slight overlap of the arrows with the (manufacturer) south edge
+%% because creating the offset in another way didn't compile. 
+% 
+%\draw[<->, >=latex', shorten >=2pt, shorten <=2pt, bend right=45, thick, dashed] 
+    %(retailer1.south) to node[auto, swap] {Competition}(retailer2.south); 
+%% The swap command corrects the placement of the text.
 
 \end{tikzpicture} 
 
 
-\caption{Do not forget! Make it explicit enough that readers
-can figure out what you are doing.}
+\caption{Artefact generation forms the backbone of the development process. They act as a ubiquitous language between users, that represent the variability of the domain, and the development team. They also provide the core of the tool documentation, providing a \emph{rationale} for reported errors. Standards documents contribute to informing and codifying user stories, but their role is peripheral.}
 \end{figure}
