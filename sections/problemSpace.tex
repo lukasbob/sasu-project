@@ -1,0 +1,49 @@
+% !TEX root = ../document.tex
+\section{Problem Space} % (fold)
+\label{sec:problem_space}
+
+This section outlines the problem space for users and for developers that create web content for users.
+
+\subsection{Access Methods} % (fold)
+\label{sub:access_methods}
+
+A central tennet of web development is that the means and modality that users employ to access the content is unknown. A user may use a variety of assistive technology, such as screen readers, Braille displays, screen magnifiers, a low-resolution screen, non-graphical browsers, and may use any number of input methods -- mouse, touch, keyboard, speech, pointing devices, joysticks, sip-and-puff systems, and anything else imaginable. In addition, the user hmay have heavily customized their computing environment with inverted colours, custom style sheets and much more. 
+
+
+% subsection access_methods (end)
+
+\subsection{Stakeholders} % (fold)
+\label{sub:stakeholders}
+
+Lopes \cite{Lopes:2010} posits that framing accessibility issues with the developer-user dichotomy is insufficient, in that multiple stakeholders are 
+% subsection stakeholders (end)
+
+\subsection{Solution Space State of the Art} % (fold)
+\label{sub:state_of_the_art}
+
+\subsubsection{Standards.} % (fold)
+	\label{ssub:standards_}
+	The \ac{WCAG} \cite{wcag:2008} provide standards for supporting web accessibility. This standards document is maintained by the \ac{W3C}, and is written in a technology-agnostic fashion. This ensures that the guidelines apply equally to existing and emerging technologies, but it also means that the document itself cannot provide prescriptive, fail-safe guidance to implementation in practice. Instead, this is provided by supporting documents that contain guidance for common web technologies (HMTL, CSS, JavaScript).	
+	% subsubsection standards_ (end)	
+
+\subsubsection{Development Tools Support.} % (fold)
+	\label{ssub:development_tools_support_}
+	Tooling support is relatively poor, in part due to the variability possible in the output. Output is usually to HTML, which, in combination with CSS and JavaScript provides endless variability in interaction behaviour. Although increasingly falling out of favour, delivery technologies based on extensions and plug-ins for browsers still play an important part, particularly with security-sensitive interactions between public sector and users.
+
+	Web content may be composed of data, markup and assets from a variety of heterogeneous sources. For example, a typical rich content page may contain any of the following Flash video embedded in an iframe, generated at display-time by JavaScript provided through a content delivery network. It could also contain an embedded Java applet that provides an interface to log on securely to access personal information from public service provider. In addition it may contain buttons that allow users to promote the page on a variety of social networks, implemented by unknown developers, but embedded as coordinate with the page's own content.
+
+	The upshot of this diversity is that no comprehensive tooling exists for auditing the output, neither at design time nor at display time.
+	% subsubsection development_tools_support_ (end)
+
+% subsection state_of_the_art (end)
+
+Section outline:
+
+\begin{itemize}
+	\item Discuss the unknowable nature of use time modality: Known vs. unknown assistive technology -- access modalities exist in a continuum; e.g. zoom $\rightarrow$ magnification $\rightarrow$ custom style sheets \& inverse colors
+	\item Discuss the cognitive gap between developers and users with severe handicaps.
+	\item However, explain that accessibility is not an edge case; that e.g. age and diversity in experience can also cause accessibility problems.
+	\item Discuss the circumstance that the user restructures the web content in a way that suits their use scenarios. Certain practices detract from the user's ability to configure their environment, either willfully or inadvertently. Such practices should be documented so that they can be discouraged.
+\end{itemize}
+
+% section problem_space (end)

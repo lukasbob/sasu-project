@@ -1,11 +1,16 @@
 (function(self){
 	"use strict";
-	var ClassName = function(){};
-	ClassName.prototype.myMethod = function(props) {
+
+	// Constructor
+	var ClassName = function(props){
 		this.hello = props.hello || "Hello";
 	};
 
-	ClassName.prototype.myVeryVeryLongMethod = function (argumentNumber1, argumentNumber2) {
+	// Prototype - instance methods
+	ClassName.prototype.myMethod = function() {
+	};
+
+	ClassName.prototype.myVeryVeryLongMethod = function(argumentNumber1, argumentNumber2) {
 		// body...
 	};
 	self.ClassName = ClassName;
