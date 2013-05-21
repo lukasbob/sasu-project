@@ -1,8 +1,0 @@
-Please click the button on the right to proceed.
-
-<p class="pull-right">
-<button>
-Go!
-
-</button>
-</p>
