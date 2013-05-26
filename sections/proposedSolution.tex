@@ -1,8 +1,23 @@
 % !TEX root = ../document.tex
-\section{Proposed Development Process} % (fold)
+\section{Proposed Research Project} % (fold)
 \label{sec:proposed_development_process}
 
-This section proposes a development methodology that facilitates increased awareness about the problem space among developers. It makes extensive use of artefacts of user research as a means of communication. It builds on the idea of \ac{DDD}, whereby a ubiquitous language permeates the development process. 
+This section proposes research into a development process that facilitates increased awareness about the problem space among stakeholders. It makes extensive use of artefacts of user research as a means of communication. It draws on a central idea of ubiquitous language from \ac{DDD}.
+
+In \ac{DDD}, ubiquitous language is used and maintained throughout the development process to ensure that domain knowledge permeates the development organization, and that communication between developers and domain experts can occur with minimal risk of misunderstanding. 
+
+\subsection{Research Setting and Design} % (fold)
+\label{sub:research_setting}
+
+Introducing the complexity of accessible development into an arbitrary organization whose core business may have nothing to do with understanding accessibility is not realistic. Instead, I propose that an organization that provides tooling for accessibility testing compiles and promotes documentation, pedagogical materials, and patterns and practices.
+
+In order to achieve this without changing the core business of the tooling provider, the process focuses on rarefying and emphasizing the process of artefact collection, so that the artefact become a cornerstone of the cognitive framework that underpins the testing tool. 
+
+In practice, this means focusing on the user story throughout the development and use process. User stories act as the rationale for feature development, and artefacts of the development process may extend to the user interface, acting as supporting pedagogical material for the tool user.
+
+Implementing this development process requires significant agency by the researcher and process designer. In order to accommodate this, action research is an appropriate research method. Action research acknowledges the mutable quality of its subject matter, and acknowledges that the researcher becomes part of the social practice that is enacted in the research setting \cite{Checkland:1998}.
+
+% subsection research_setting (end)the errors as they exist on the page.
 
 Figure \ref{fig:devprocess} illustrates the central role of artefacts in the proposed process.
 
@@ -13,33 +28,20 @@ Figure \ref{fig:devprocess} illustrates the central role of artefacts in the pro
 \caption{Artefact generation forms the backbone of the development process. They act as a ubiquitous language between users, that represent the variability of the domain, and the development team. They also provide the core of the tool documentation, providing a \emph{rationale} for reported errors. Standards documents contribute to informing and codifying user stories, but their role is peripheral.}
 \end{figure}
 
-It is beyond the scope and feasibility of this proposal to promote \ac{DDD} with accessibility as a core part of the domain as a general development methodology within any organization. It is realistic that accessibility falls somewhere outside the bounded context within which the software of users of these auditing tools is developed, so it becomes the responsibility of the auditing tools to highlight errors and relay information about the accessibility domain.
-
 \subsection{Classes of Artefacts} % (fold)
 \label{sub:classes_of_artefacts}
 
-We distinguish between two distinct types of artefacts. 
+Artefacts may be \emph{incidental} -- a side effect of user testing or development -- or they may be \emph{intentional} -- produced with a specific purpose in mind, but informal in nature. The following lists some artefacts that could be generated in the process, and illustrates the idea of gradual refinement and generalization.
 
 \begin{description}
-	\item[User stories.] Artefacts of user research. These may be refined so that they can contribute to pedagogical material.
-	\item[Case reductions.] Created iteratively by the development team based on user stories and standards documents. They serve to isolate accessibility problems, and to document patterns that work and anti-patterns that should be avoided. They can also be used to create test fixtures for automated testing in the development process.
-
+	\item[User stories.] Based on interviews and usability testing, this forms the raw material that most subsequent steps draw upon. This empirical approach may be partially task-based, but must also be exploratory, in order to uncover barriers that are unimagined to the researcher.
+	\item[Concrete accessibility barriers.] Recorded by the researcher, this is documentation of incidents that occur during usability testing. These incidents may be recorded as timestamps in a video recording for use in pedagogical materials further along in the process.
+	\item[Exemplars of user stories.] These are aggregated forms of user stories that condense and summarise users' circumstances and the ways in which users use computers. If the source material allows it, these should include both stories where computers enable actions that would not otherwise be possible, and stories where the requirement to use a computer was barrier.
+	\item[Case reductions.] Created iteratively by the development team based on user stories and standards documents. They serve to isolate accessibility problems, and to document patterns that work and anti-patterns that should be avoided. They can also be used to create test fixtures for automated testing in the development process. These artefacts may require many iterations in order to understand and translate the incidents recorded in testing to code reductions.
 \end{description}
 
+
+
 % subsection classes_of_artefacts (end)
-
-\subsection{Gathering Knowledge for User Stories} % (fold)
-\label{sub:part_1_gathering_knowledge_for_user_stories}
-The initial step is to gather knowledge about the many forms that accessibility challenges take. This work consists of conducting user testing with a range of users that have difficulties in accessing content on the internet, and documenting these difficulties. 
-It is important to illustrate that there is always a barrier between the user and the symbols for data that the users manipulate, and that our ability to successfully interact with these symbols may be plotted somewhere on a continuum. The purpose for this is to demystify accessibility problems and to appeal to developer empathy.
-
-% subsection part_1_gathering_knowledge_for_user_stories (end)
-
-\subsection{Creating Artefacts that Illustrate Patterns and Anti-patterns} % (fold)
-\label{sub:part_2_creating_artefacts_that_illustrate_patterns_and_anti_patterns}
-
-The interviews with users will reveal some patterns that should be encouraged, and some anti-patterns that should be avoided. If it is possible at this point, these should be documented and codified as code snippets.
-
-% subsection part_2_creating_artefacts_that_illustrate_patterns_and_anti_patterns (end)
 
 % section proposed_development_process (end)

@@ -2,22 +2,21 @@
 \section{Introduction} % (fold)
 \label{sec:introduction}
 
-\paragraph{The area of web accessibility} % (fold)
- \label{par:the_area_of_web_accessibility}
- is characterized by a stack of technologies separated from operating system accessibility frameworks. Roles, states and properties of web content and controls are mapped to the operating system's accessibility APIs for standard web controls and markup. 
- However, implementing custom controls or disregarding the semantics of HTML tags is common practice, for the purpose of distinctiveness in visual design or interactivity. An entrepreneurial environment exists on the web that wants to push the state of the art forward, sometimes employing technologies to plug some gaps in current standards-based web technologies that have detrimental effects on accessibility or usability.
-% paragraph the_area_of_web_accessibility (end) 
+\paragraph{Web accessibility} % (fold)
+ \label{par:the_area_of_web_accessibility} 
+is most commonly practiced in the form of auditing websites in production, after the development effort has subsided and the project is in maintenance mode. In this setting, fundamental changes are difficult and costly to envision and enact, and only superficial changes are usually made.
 
-A concurrent development is underway where public services are becoming available no-line, sometimes to the exclusion of face-to-face interaction. 
+More importantly, the knowledge of the accessibility assessor who performs the assessment and writes the audit remains steeped in jargon, framed in technical terms with references to guidelines with reams of text to decipher. Such an audit is unlikely to be welcomed by developers, whose resources may be sparse and who consider the website to be in maintenance mode.
 
-Accessibility guidelines exist to provide guidance and conformance levels that should indicate ways in which websites are and are not accessible. However, testing may provide results that are difficult to prioritize, or that are too far removed from use scenarios as to be useful \cite{Connor:2010,Brajnik:2006}. However, as public services move online, education about the accessibility domain and intelligence about performance in this area remain at least as important as ever.
+This paper posits that the gulf between software development and software in use in the field of accessibility prevents the adaptation of development processes that fundamentally address issues of accessibility. In order to address this problem, a research project is proposed that will investigate a form of \ac{UCD} that uses empirical testing as its primary means of generating requirements. 
 
-Given that this is the case, both developing accessible web content and auditing web accessibility are challenges that do not currently have a good solution. 
-This paper proposes a development methodology for developing auditing tools that attempts to bridge the cognitive gap between the problem space -- real-life accessibility obstacles -- and developers of web sites. This is predicated on developers of the tool becoming closely acquainted with the accessibility domain, through an understanding of the obstacles that users face. \\
+The research project is designed as action research, seeking to solve a development problem within a specific setting and a specific field: The development of auditing tools for web accessibility. The fact that accessibility is the primary business domain of the development organization allows us the luxury of focusing on acquiring domain knowledge specifically in this field.
+
+As we will discuss, this limits the applicability of the development methodology. However, as we will illustrate, the ideas that underpin this development method may have wider appeal.
 
 \paragraph{This paper is structured as follows.} % (fold)
 \label{par:paragraph_name}
- Section \ref{sec:research_question} poses the question that the research project is designed to address. Section \ref{sec:problem_space} outlines the problem that accessibility poses for stakeholders, and discusses the strengths and shortcomings of current solutions for testing and developing accessible web content. This provides the framing for Section \ref{sec:proposed_development_process}, which outlines a methodology for developing a product that addresses some of the issues described previously. Section \ref{sec:evaluation} proposes an evaluation method for the project, while Section \ref{sec:discussion} discusses threats to implementing the proposed solution, and problems that may arise in providing an adequate evaluation. Finally, \ref{sec:conclusion} summarises the proposal and discusses application of this methodology to other projects.
+ Section \ref{sec:research_question} poses the question that the research project is designed to address. Section \ref{sec:problem_space} outlines the problem that accessibility poses for stakeholders, and discusses the strengths and shortcomings of current solutions for testing and developing accessible web content. This provides the framing for Section \ref{sec:proposed_development_process}, which outlines a methodology for developing a product that addresses some of the issues described previously. Section \ref{sec:evaluation} proposes an evaluation method for the project, while Section \ref{sec:discussion} discusses threats to implementing the proposed solution, and problems that may arise in providing an adequate evaluation. Finally, Section \ref{sec:conclusion} summarises the proposal and discusses application of this methodology to other projects.
 
 % paragraph paragraph_name (end)
 % section introduction (end)

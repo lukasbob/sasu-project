@@ -4,78 +4,77 @@
 
 This section outlines the problem space for users and for developers that create web content for users.
 
+
 \subsection{Quality in Use: The Many Modalities of Accessibility} % (fold)
 \label{sub:access_methods}
 
-A central tenet of developing for accessibility is that the means and modality that users employ to access the content is unknown. A user may use a variety of assistive technology -- screen readers, Braille displays, screen magnifiers, low-resolution screens, non-graphical browsers -- and may use any number of input methods -- mouse, touch, keyboard, speech, pointing devices, joysticks, sip-and-puff systems, and anything else imaginable. In addition, users may have heavily customized their computing environment with inverted colours, custom style sheets and much more. Often interaction design focuses on the most common use cases. So far, in the era of personal computing, this has been the combination of screen, mouse, and to a limited extent, keyboard. In recent years, touch as an input method has been added to this palette, due to the break-through of mobile devices. \\
+A central tenet of developing for accessibility is that the means and modality that users employ to access the content is unknown. A user may use a variety of assistive technology -- screen readers, Braille displays, screen magnifiers, low-resolution screens, non-graphical browsers -- and may use any number of input methods -- mouse, touch, keyboard, speech, pointing devices, joysticks, sip-and-puff systems, and anything else imaginable. In addition, users may have heavily customized their computing environment with inverted colours, custom style sheets and much more. Often interaction design focuses on the most common use cases. So far, in the era of personal computing, this has been the combination of screen, mouse, and to a limited extent, keyboard. In recent years, touch as an input method has been added to this palette, due to the break-through of mobile devices.
 
-With so many modes of input and output, it is clear that the qualities of a website in use is dependent on some factors that are controllable, and some that are not. For example, web developers cannot control whether browser vendors correctly map the native browser form controls to operating system accessibility APIs, but they   can control whether they use a JavaScript library of rich user controls that does not support keyboard navigation. Equally, they cannot control the whether the version of a screen reader in use by a blind user supports \ac{WAI-ARIA} properties, states and roles, but they can control whether they use these mechanisms to enable support in future versions of that screen reader.
+With so many modes of input and output, it is clear that the qualities of a website in use are dependent on some factors that are controllable, and some that are not. For example, web developers cannot control whether browser vendors correctly map the native browser form controls to operating system accessibility APIs, but they can control whether they use a JavaScript library of rich user controls that does not support keyboard navigation. Equally, they cannot control whether the version of a screen reader in use by a blind user supports \ac{WAI-ARIA} properties, states and roles, but they can control whether they use these mechanisms in their own controls, to enable support in future versions of that screen reader.
 
-Certain practices detract from the user's ability to configure their environment, either willfully or inadvertently. This might include using technologies that do not support the inversion of colours, or making assumptions about how a page is displayed by referring to contents by position (e.g. ``Fill in the form on the right'')
-Such practices should be documented so that they can be discouraged.
-
-As an accident of history, practitioners in the field of web development may be disposed to embrace this variability, due to the differences in the way that browsers display content. As browser technology progresses, developers are increasingly able to reach a level of fidelity that is closer to their vision, and this leads to a desire to push the limits of the medium.
+Certain practices detract from the user's ability to configure their environment. This might include using technologies that do not support the inversion of colours, or making assumptions about how a page is displayed by referring to contents by position (e.g. ``Fill in the form on the right'').
 
 % subsection access_methods (end)
 
-\subsection{Accessibility Stakeholders: Drivers and Motivations} % (fold)
+
+\subsection{Accessibility Stakeholders, Drivers and Motivations} % (fold)
 \label{sub:stakeholders}
 
-Leitner \& Strauss \cite{Leitner:2010} outline organizational motivations for implementing web accessibility. They categorise motivations as falling into one of three broad categories: \emph{Economic}, \emph{Social}, or \emph{Technical}. Economic motivations include fear of negative impact, interest in maintaining support for increasing numbers of elderly users. Social motivations include organizational social consciousness, and, crucially, the personal experience of key personalities within organizations.
+In a survey of developers, assessors, service providers, governmental agencies and disabled users, Lopes et. al. \cite{Lopes:2010} find that the framing of accessibility issues as a dichotomy between developers and users is not sufficiently nuanced. Other stakeholders play a role in the decisions and practices that lead to under-education and under-prioritization of accessibility development. Their survey concludes that knowledge about standards is sparse, but that there is inherent openness to learning about web accessibility.
+
+When all stakeholders need to be invested in order to enable an accessibility-enabling process, it is important to know what the drivers for accessibility development are.
+
+Leitner \& Strauss \cite{Leitner:2010} outline organizational motivations for implementing web accessibility. They categorise motivations as falling into one of three broad categories: \emph{Economic}, \emph{Social}, or \emph{Technical}. Economic motivations include fear of negative impact, and interest in maintaining support for increasing numbers of elderly users. Social motivations include organizational social consciousness, and, crucially, the personal experience of key personalities within organizations. Technical motivations are usually broader and only peripherally related to accessibility.
 
 Interestingly, legislative pressure does not figure prominently as a driver in this survey. There are clearly some regional and cultural differences to how great a societal role legislation and litigation has, which may form part of the explanation for this. However, regardless of regional differences, an explanation may be that legislating bodies face the same difficulties with adequately measuring accessibility as organizations. 
 
 Strategies for promoting accesibility despite this include screenings that provide indicative rankings, such as the \ac{SOCITM}'s annual Better Connected report in the UK \cite{betterconnected:2013}, or Bedst p\aa{} Nettet in Denmark \cite{bedstpaanettet:2013}.
 
-Lopes et. al. \cite{Lopes:2010} illustrate that framing accessibility issues with the developer-user dichotomy is insufficient, in that other stakeholders play a greater role in the decisions that lead to under-education and under-prioritization of accessibility development. Their survey concludes that knowledge about standards is sparse, and that developers desire better tooling support that integrates with their development environments.
+A common thread emerges from these surveys: Personal experience with disability influences personal and organizational motivations for knowledge acquisition and implementation.
+This provides a clue about the features that could be promoted in a development process.
 
 % subsection stakeholders (end)
 
-\subsection{Solution Space State of the Art} % (fold)
+\subsection{Accessibility Development and Auditing: Current Practices} % (fold)
 \label{sub:state_of_the_art}
 
-\subsubsection{Standards.} % (fold)
+This is a short review of current practices and guidance for developers.
+
+\subsubsection{Standards and Guidelines.} % (fold)
 	\label{ssub:standards_}
 	The \ac{WCAG} \cite{wcag:2008} provide standards for supporting web accessibility. This standards document is maintained by the \ac{W3C}, and is written in a technology-agnostic fashion. This ensures that the guidelines apply equally to existing and emerging technologies, but it also means that the document itself cannot provide prescriptive, fail-safe guidance to implementation in practice. Instead, this is provided by supporting documents that contain guidance -- mainly for core web technologies (HTML, CSS, JavaScript), but also limited guidance for server-side development, PDF, and plug-in technologies such as Flash \cite{wcagtechs:2012}.
+
+	The guideline and its supporting documents comprise a comprehensive set of documents that provide a good basis for extracting patterns and anti-patterns. However, using only the guidelines as guidance, the problemns that they seek to address can be lost. 
+
 	% subsubsection standards_ (end)	
 
 \subsubsection{Development Tools Support.} % (fold)
 	\label{ssub:development_tools_support_}
-	Tooling support is relatively poor, in part due to the variability possible in the output. Output is usually to HTML, which, in combination with CSS and JavaScript, provides endless variability in interaction behaviour. Although increasingly falling out of favour, delivery technologies based on extensions and plug-ins for browsers still play an important part, particularly with security-sensitive interactions between public sector and users.
+	Tooling support is relatively poor, in part due to the variability possible in the output. Output is usually to HTML, which, in combination with CSS and JavaScript, provides endless variability in interaction behaviour. Although increasingly falling out of favour, delivery technologies based on extensions and plug-ins for browsers still play an important part, particularly with security-sensitive interactions between public sector and users. An example of this is banking and public services in Denmark, which uses a Java applet to manage two-factor authentication.
 
-	Web content may be composed of data, markup and assets from a variety of heterogeneous sources. For example, a typical rich content page may contain any of the following Flash video embedded in an iframe, generated at display-time by JavaScript provided through a content delivery network. It could also contain an embedded Java applet that provides an interface to log on securely to access personal information from public service provider. In addition it may contain buttons that allow users to promote the page on a variety of social networks, implemented by unknown developers, but embedded as coordinate with the page's own content.
+	The difficulty  of providing tooling is exacerbated by the fact that web pages often are composited from components and data from various heterogeneous sources. For example, a typical rich content page may contain Flash video embedded in an iframe, generated at display-time by JavaScript provided through a content delivery network. It could also contain an embedded Java applet that provides an interface to log on securely to access personal information from a public service provider. In addition it may contain buttons that allow users to promote the page on a variety of social networks, implemented by unknown developers, but embedded as coordinate with the page's own content.
 
 	The upshot of this diversity is that no comprehensive tooling exists for auditing the output, neither at design time nor at display time.
 	% subsubsection development_tools_support_ (end)
 
 % subsection state_of_the_art (end)
 
-\subsubsection{Current Testing Practices.} % (fold)
+\subsubsection{Accessibility Audits.} % (fold)
 	\label{ssub:current_testing_practices_}
 	
 	Connor \cite{Connor:2010} outlines the characteristics of how web sites are audited, based on an auditing process that emerged in an environment in which the first iteration of the \ac{WCAG} were current. He draws into question the usefulness of the audit when it is not backed by user testing. 
 
-	The audits create a form of knowledge that is likely to remain within the accessibility domain, in that the audits are bounded to a different context than those considered in development. The audit contains no inherent driver to embed accessibility concerns in the development process.  
+	The audits create a form of knowledge that is likely to remain within the accessibility domain, in that the audits are bounded to a different context than those considered in development. The audit contains no inherent driver to embed knowledge about accessibility concerns in the development process.  
 
 % subsubsection current_testing_practices_ (end)
 \subsubsection{Development Processes that Support Accessibility.} % (fold)
 	\label{ssub:proposed_solutions_}
-	Vieritz et al. \cite{Vieritz:2010} propose a framing of accessibility testing in terms usability, by mapping accessibility concerns to usability concerns through patterns. The aim of this approach is to provide developers with a library of user interaction patterns, analog to user interface patterns in interface design, so that patterns can be mapped to concrete solutions.
+	Vieritz et al. \cite{Vieritz:2010} propose a framing of accessibility development in terms of usability, by mapping accessibility concerns to usability concerns through patterns. The aim of this approach is to provide developers with a library of user interaction patterns, analog to user interface patterns in interface design, so that patterns can be mapped to concrete solutions.
 
 	Yazdi et al. \cite{Yazdi:2011} builds on this idea, describing a generic process model based on \ac{UCD} that runs parallel to the regular development process. This process draws on a repository of reusable components, consisting of patterns and guidelines.
+
+	These approaches seek to introduce abstractions that alleviate the need for specialized knowledge about the accessibility domain. In a sense, they extrapolate the tenet of separation of concerns to the realm of accessibility, thereby addressing the practical concern of implementing accessible user interfaces. While this is a commendable goal, it does not address the central issue of organizational motivation that must underlie process implementation, which, as we have seen, can be affected by personal experience.
 
 % subsubsection proposed_solutions_ (end)
 
 
-\subsection{Software Development Processes as Social Structure} % (fold)
-\label{sub:software_development_processes_as_social_structure}
-
-A software development process is a structure designed for the express purpose of maximizing the efficiency with which high quality software is developed. Anything that detract s from this purpose is counterproductive, and should be addressed. However, software projects are also enactments of social structures. Hegemonic relationships and resistance play a part in shaping the process. 
-
-A risk in this project is that the motivation and drive for the project does not come from a business development perspective; nor does it originate from within the development team itself. Instead it is driven by customer inquiries and dissatisfaction with the usability and comprehensibility of the existing solution. 
-
-The research setting will be shaped by the agency of the researcher, in that I act as a project lead on the project.
-
-% subsection software_development_processes_as_social_structure (end)
-
-% section problem_space (end)
